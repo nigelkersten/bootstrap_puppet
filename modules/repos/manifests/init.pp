@@ -2,8 +2,7 @@ class repos {
 
   Vcsrepo { ensure => present, provider => "git", }
 
-  #$repo_root = "/home/nigel/src"
-  $repo_root = "/tmp/src"
+  $repo_root = "/home/nigel/src"
 
   file { "${repo_root}":
     ensure => directory,
