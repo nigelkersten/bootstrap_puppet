@@ -30,4 +30,9 @@ class users::nigel::config {
     target => "${src}/dotfiles/vim",
   }
 
+  file { "${home}/.bashrc":
+    ensure => symlink,
+    target => "${src}/dotfiles/bashrc",
+  }
+
 }
