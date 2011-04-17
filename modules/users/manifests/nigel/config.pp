@@ -29,4 +29,5 @@ class users::nigel::config {
     ensure => symlink,
     target => "${src}/dotfiles/vim",
   }
+
 }

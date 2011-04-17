@@ -19,10 +19,10 @@ fi
 if [ ! -d "/home/nigel/src/facter" ]; then
   git clone git://github.com/puppetlabs/facter.git
 fi
+popd
 
 alias puppet="${PUPPET}"
 alias facter="${FACTER}"
 
 $PUPPET apply -v --modulepath="${DIR}/modules" "${DIR}/manifests/site.pp"
 
-popd
