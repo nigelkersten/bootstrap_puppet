@@ -10,6 +10,7 @@ PUPPET='/home/nigel/src/puppet/ext/envpuppet puppet'
 FACTER='/home/nigel/src/puppet/ext/envpuppet facter'
 
 mkdir -p "${ENVPUPPET_BASEDIR}"
+pushd "${ENVPUPPET_BASEDIR}"
 
 if [ ! -d "/home/nigel/src/puppet" ]; then
   git clone git://github.com/puppetlabs/puppet.git
@@ -24,3 +25,4 @@ alias facter="${FACTER}"
 
 $PUPPET apply -v --modulepath="${DIR}/modules" "${DIR}/manifests/site.pp"
 
+popd
