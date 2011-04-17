@@ -14,10 +14,18 @@ pushd "${ENVPUPPET_BASEDIR}"
 
 if [ ! -d "/home/nigel/src/puppet" ]; then
   git clone git://github.com/puppetlabs/puppet.git
+else
+  pushd /home/nigel/src/puppet
+  git pull
+  popd
 fi
 
 if [ ! -d "/home/nigel/src/facter" ]; then
   git clone git://github.com/puppetlabs/facter.git
+else
+  pushd /home/nigel/src/facter
+  git pull
+  popd
 fi
 popd
 
@@ -26,3 +34,5 @@ alias facter="${FACTER}"
 
 $PUPPET apply -v --modulepath="${DIR}/modules" "${DIR}/manifests/site.pp"
 
+# re-init our shell in case bashrc changed
+. ~/.bashrc
