@@ -7,7 +7,7 @@ class users::nigel::config {
         owner   => nigel,
         group   => nigel,
         mode    => 0644,
-        require => Vcsrepo["${src}/dotfiles",
+        require => Vcsrepo["${src}/dotfiles"],
        }
 
   vcsrepo { "${src}/dotfiles":
