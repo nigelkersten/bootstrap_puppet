@@ -9,6 +9,16 @@ export ENVPUPPET_BASEDIR="/home/nigel/src"
 PUPPET='/home/nigel/src/puppet/ext/envpuppet puppet'
 FACTER='/home/nigel/src/puppet/ext/envpuppet facter'
 
+mkdir -p "${ENVPUPPET_BASEDIR}"
+
+if [ ! -d "/home/nigel/src/puppet" ]; then
+  git clone git://github.com/puppetlabs/puppet.git
+fi
+
+if [ ! -d "/home/nigel/src/facter" ]; then
+  git clone git://github.com/puppetlabs/facter.git
+fi
+
 alias puppet="${PUPPET}"
 alias facter="${FACTER}"
 
