@@ -14,8 +14,10 @@ class users::root {
   }
 
   file { "/root/.bashrc":
-    ensure => symlink,
-    target => "${src}/dotfiles/bashrc",
+    ensure => file,
+    content => "export ENVPUPPET_BASEDIR=~nigel/src
+alias puppet='~nigel/src/puppet/ext/envpuppet puppet'
+alias facter='~nigel/src/puppet/ext/envpuppet facter'",
   }
 
 }
