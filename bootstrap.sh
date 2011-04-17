@@ -5,9 +5,12 @@
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
-export ENVPUPPET_BASEDIR=~nigel/src
-alias puppet='~nigel/src/puppet/ext/envpuppet puppet'
-alias facter='~nigel/src/puppet/ext/envpuppet facter'
-alias irb='~nigel/src/puppet/ext/envpuppet irb'
+export ENVPUPPET_BASEDIR="/home/nigel/src"
+PUPPET='/home/nigel/src/puppet/ext/envpuppet puppet'
+FACTER='/home/nigel/src/puppet/ext/envpuppet facter'
 
-puppet apply -v --modulepath="${DIR}/modules" "${DIR}/manifests/site.pp"
+alias puppet="${PUPPET}"
+alias facter="${FACTER}"
+
+$PUPPET apply -v --modulepath="${DIR}/modules" "${DIR}/manifests/site.pp"
+
