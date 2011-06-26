@@ -35,4 +35,14 @@ class users::nigel::config {
     target => "${src}/dotfiles/bashrc",
   }
 
+  file { "${home}/.ssh":
+    ensure => directory,
+    mode   => 0700,
+  }
+
+  file { "${home}/.ssh/authorized_keys":
+    ensure => file,
+    source => "puppet:///modules/users/nigel/authorized_keys",
+  }
+
 }
