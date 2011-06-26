@@ -1,6 +1,6 @@
 class repos {
 
-  Vcsrepo { ensure => present, provider => "git", }
+  Vcsrepo { ensure => latest, provider => "git", }
 
   $repo_root = "/home/nigel/src"
 
